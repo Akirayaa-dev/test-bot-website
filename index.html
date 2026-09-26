@@ -1,1 +1,815 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Test Bot | Team GSk</title>
+    <meta name="description" content="Test Bot von Team GSk – automatisiere deinen Discord-Server.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d12;
+            color: #f1f2f5;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #8f99ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 80px;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #2c3455 0%,
+                    #171a25 38%,
+                    #0b0d12 75%
+                );
+            border-bottom: 1px solid #292d38;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 999px;
+            border: 1px solid #3d4358;
+            background: #191c28;
+            color: #bfc5ff;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 75px);
+            margin: 20px 0 10px;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #aeb2bd;
+            font-size: 17px;
+        }
+
+        /* BUTTON */
+
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 14px 24px;
+            border-radius: 11px;
+            background: #5865f2;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #707bff;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        .navigation {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 13, 18, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #292d38;
+        }
+
+        .navigation-inner {
+            max-width: 950px;
+            margin: auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navigation a {
+            color: #c3c6d0;
+            font-size: 14px;
+        }
+
+        .navigation a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* CONTENT */
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .section {
+            background: #151820;
+            border: 1px solid #292d38;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .section h2 span {
+            color: #8993ff;
+        }
+
+        .section h3 {
+            margin-top: 25px;
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            color: #c5c8d0;
+            margin-bottom: 12px;
+        }
+
+        .section ul {
+            margin-left: 25px;
+            color: #c5c8d0;
+        }
+
+        .section li {
+            margin: 7px 0;
+        }
+
+        .notice {
+            margin-top: 15px;
+            padding: 15px 18px;
+            background: #10131a;
+            border-left: 3px solid #5865f2;
+            border-radius: 8px;
+            color: #c7cad3;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c2238,
+                    #151820
+                );
+        }
+
+        .cta h2 {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid #292d38;
+            color: #858a97;
+            font-size: 14px;
+        }
+
+        footer a {
+            margin: 0 7px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 65px 18px 55px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .navigation-inner {
+                gap: 15px;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .section {
+                padding: 22px 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
+<header class="hero">
+
+    <div class="badge">
+        Team GSk · Discord Bot
+    </div>
+
+    <h1>
+        Test Bot
+    </h1>
+
+    <p>
+        Automatisiere den Aufbau deines Discord-Servers
+        mit Test Bot von Team GSk.
+    </p>
+
+    <!-- BOT EINLADEN -->
+
+    <a
+        class="button"
+        href="https://discord.com/oauth2/authorize?client_id=1553156639903850537&permissions=8&scope=bot%20applications.commands"
+    >
+        🤖 Bot hinzufügen
+    </a>
+
+</header>
+
+
+<!-- ========================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================= -->
+
+<nav class="navigation">
+
+    <div class="navigation-inner">
+
+        <a href="#nutzungsbedingungen">
+            Nutzungsbedingungen
+        </a>
+
+        <a href="#datenschutz">
+            Datenschutz
+        </a>
+
+        <a href="#impressum">
+            Impressum
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- ========================================= -->
+<!-- §1 -->
+<!-- ========================================= -->
+
+<section
+    class="section"
+    id="nutzungsbedingungen"
+>
+
+    <h2>
+        <span>§ 1</span> – Geltungsbereich
+    </h2>
+
+    <p>
+        Diese Nutzungsbedingungen gelten für die Nutzung
+        von <strong>Test Bot</strong>, einem Discord-Bot
+        von <strong>Team GSk</strong>.
+    </p>
+
+    <p>
+        Durch das Hinzufügen oder Verwenden des Bots
+        erklärst du dich mit diesen Nutzungsbedingungen
+        einverstanden.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §2 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 2</span> – Zweck und Funktionen
+    </h2>
+
+    <p>
+        Test Bot unterstützt Nutzer bei der automatisierten
+        Erstellung und Einrichtung von Discord-Servern.
+    </p>
+
+    <ul>
+
+        <li>
+            Kategorien automatisch erstellen
+        </li>
+
+        <li>
+            Text- und Sprachkanäle erstellen
+        </li>
+
+        <li>
+            Rollen erstellen und einrichten
+        </li>
+
+        <li>
+            Berechtigungen konfigurieren
+        </li>
+
+        <li>
+            Serverstrukturen automatisch aufbauen
+        </li>
+
+        <li>
+            Weitere Funktionen bereitstellen
+        </li>
+
+    </ul>
+
+    <p>
+        Der Funktionsumfang kann jederzeit erweitert,
+        geändert oder eingestellt werden.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §3 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 3</span> – Berechtigungen
+    </h2>
+
+    <p>
+        Für bestimmte Funktionen benötigt Test Bot
+        entsprechende Discord-Berechtigungen.
+    </p>
+
+    <p>
+        Der Serverinhaber sollte vor der Nutzung prüfen,
+        welche Berechtigungen dem Bot erteilt werden.
+    </p>
+
+    <p>
+        Der Bot darf nicht verwendet werden, um
+        Sicherheitsmaßnahmen zu umgehen oder sich
+        unbefugt Zugriff auf fremde Server oder Daten
+        zu verschaffen.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §4 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 4</span> – Verantwortungsvolle Nutzung
+    </h2>
+
+    <p>
+        Der Nutzer ist für seinen Discord-Server,
+        dessen Inhalte und die durch den Bot
+        vorgenommenen Einstellungen selbst verantwortlich.
+    </p>
+
+    <p>
+        Insbesondere untersagt sind:
+    </p>
+
+    <ul>
+
+        <li>
+            absichtliche Überlastung oder Störung
+            des Bots
+        </li>
+
+        <li>
+            Ausnutzen oder Weitergabe von
+            Sicherheitslücken
+        </li>
+
+        <li>
+            Manipulationsversuche
+        </li>
+
+        <li>
+            unbefugter Zugriff auf fremde Server
+            oder Daten
+        </li>
+
+        <li>
+            Spam oder missbräuchliche Nutzung
+        </li>
+
+        <li>
+            rechtswidrige Nutzung
+        </li>
+
+        <li>
+            Verstöße gegen die Discord-Regeln
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §5 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 5</span> – Verfügbarkeit
+    </h2>
+
+    <p>
+        Team GSk bemüht sich um einen zuverlässigen
+        Betrieb von Test Bot.
+    </p>
+
+    <p>
+        Eine dauerhafte oder fehlerfreie Verfügbarkeit
+        kann jedoch nicht garantiert werden.
+    </p>
+
+    <p>
+        Der Bot kann aufgrund von Wartungsarbeiten,
+        Updates, technischen Problemen oder Änderungen
+        an Discord vorübergehend nicht verfügbar sein.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §6 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 6</span> – Sperrung
+    </h2>
+
+    <p>
+        Team GSk kann die Nutzung von Test Bot für
+        einzelne Nutzer oder Server einschränken
+        oder sperren.
+    </p>
+
+    <p>
+        Dies kann insbesondere bei Verstößen gegen
+        diese Nutzungsbedingungen, Missbrauch,
+        Manipulationsversuchen oder rechtswidriger
+        Nutzung erfolgen.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §7 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 7</span> – Änderungen
+    </h2>
+
+    <p>
+        Team GSk kann diese Nutzungsbedingungen
+        jederzeit ändern oder aktualisieren.
+    </p>
+
+    <p>
+        Es gilt die jeweils auf dieser Website
+        veröffentlichte aktuelle Version.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §8 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 8</span> – Haftung
+    </h2>
+
+    <p>
+        Die Nutzung von Test Bot erfolgt im Rahmen
+        der bestimmungsgemäßen Nutzung.
+    </p>
+
+    <p>
+        Team GSk übernimmt keine Haftung für Schäden,
+        die durch eine nicht bestimmungsgemäße oder
+        missbräuchliche Nutzung entstehen.
+    </p>
+
+    <p>
+        Gesetzlich zwingende Haftungsansprüche
+        bleiben unberührt.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- §9 -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2>
+        <span>§ 9</span> – Discord
+    </h2>
+
+    <p>
+        Test Bot ist ein unabhängiges Projekt von
+        <strong>Team GSk</strong>.
+    </p>
+
+    <p>
+        Es besteht keine offizielle Verbindung,
+        Partnerschaft oder Vertretungsbefugnis
+        gegenüber Discord Inc., sofern nicht
+        ausdrücklich anders angegeben.
+    </p>
+
+    <p>
+        Für die Nutzung von Discord gelten zusätzlich
+        die jeweils gültigen Discord-Nutzungsbedingungen
+        und Richtlinien.
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- DATENSCHUTZ -->
+<!-- ========================================= -->
+
+<section
+    class="section"
+    id="datenschutz"
+>
+
+    <h2>
+        <span>§ 10</span> – Datenschutz
+    </h2>
+
+    <p>
+        Je nach verwendeten Funktionen können für den
+        Betrieb von Test Bot bestimmte Discord-bezogene
+        Daten verarbeitet werden.
+    </p>
+
+    <div class="notice">
+
+        <strong>Wichtig:</strong>
+
+        Die folgenden Angaben müssen an die tatsächliche
+        Funktionsweise deines Bots angepasst werden.
+
+    </div>
+
+
+    <h3>
+        Verantwortlicher
+    </h3>
+
+    <p>
+
+        Team GSk<br>
+
+        [Vor- und Nachname]<br>
+
+        [Anschrift]<br>
+
+        [E-Mail-Adresse]
+
+    </p>
+
+
+    <h3>
+        Verarbeitete Daten
+    </h3>
+
+    <p>
+
+        Hier musst du angeben, welche Daten dein Bot
+        tatsächlich verarbeitet oder speichert.
+
+        Zum Beispiel können je nach Funktion Discord
+        User-IDs, Server-IDs, Rollen, Einstellungen
+        oder Bot-Logs verarbeitet werden.
+
+    </p>
+
+
+    <h3>
+        Zweck der Verarbeitung
+    </h3>
+
+    <p>
+
+        Die Verarbeitung erfolgt ausschließlich,
+        soweit sie für die Bereitstellung der jeweiligen
+        Bot-Funktionen erforderlich ist.
+
+    </p>
+
+
+    <h3>
+        Kontakt
+    </h3>
+
+    <p>
+
+        [Deine E-Mail-Adresse oder Support-Link]
+
+    </p>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- IMPRESSUM -->
+<!-- ========================================= -->
+
+<section
+    class="section"
+    id="impressum"
+>
+
+    <h2>
+        <span>§ 11</span> – Impressum
+    </h2>
+
+    <h3>
+        Angaben zum Betreiber
+    </h3>
+
+    <p>
+
+        <strong>
+            Team GSk
+        </strong>
+
+        <br>
+
+        [Vor- und Nachname / Unternehmen]
+
+        <br>
+
+        [Straße und Hausnummer]
+
+        <br>
+
+        [PLZ und Ort]
+
+        <br>
+
+        [Land]
+
+    </p>
+
+
+    <h3>
+        Kontakt
+    </h3>
+
+    <p>
+
+        E-Mail:
+        [E-Mail-Adresse]
+
+    </p>
+
+
+    <div class="notice">
+
+        Bitte ersetze alle Platzhalter durch deine
+        tatsächlichen Angaben, bevor du die Website
+        öffentlich verwendest.
+
+    </div>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- CTA -->
+<!-- ========================================= -->
+
+<section class="section cta">
+
+    <h2>
+        🚀 Test Bot für deinen Server
+    </h2>
+
+    <p>
+        Automatisiere den Aufbau deines Discord-Servers
+        mit Test Bot von Team GSk.
+    </p>
+
+    <a
+        class="button"
+        href="https://discord.com/oauth2/authorize?client_id=1553156639903850537&permissions=8&scope=bot%20applications.commands"
+    >
+        🤖 Bot hinzufügen
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+    <p>
+        © 2026 Team GSk · Test Bot
+    </p>
+
+    <p>
+
+        <a href="#nutzungsbedingungen">
+            Nutzungsbedingungen
+        </a>
+
+        ·
+
+        <a href="#datenschutz">
+            Datenschutz
+        </a>
+
+        ·
+
+        <a href="#impressum">
+            Impressum
+        </a>
+
+    </p>
+
+</footer>
+
+</body>
+</html>
